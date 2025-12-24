@@ -96,11 +96,12 @@ public class Map implements Map2D, Serializable{
 	}
 	@Override
 	public void setPixel(int x, int y, int v) {
-
+        map[y][x] = v;
     }
+
 	@Override
 	public void setPixel(Pixel2D p, int v) {
-
+      map[p.getY()][p.getX()] = v;
 	}
 
     @Override
