@@ -11,10 +11,10 @@ public class Map implements Map2D, Serializable{
 
     // edit this class below
 	/**
-	 * Constructs a w*h 2D raster map with an init value v./
-	 * @param w
-	 * @param h
-	 * @param v
+	 * Constructs a w*h 2D raster map with an init value v.
+	 * @param w the width of the underlying 2D array.
+	 * @param h the height of the  underlying 2D array.
+	 * @param v the init value of all the entries in the 2D array.
 	 */
 	public Map(int w, int h, int v) {init(w, h, v);}
 	/**
@@ -30,17 +30,41 @@ public class Map implements Map2D, Serializable{
 	public Map(int[][] data) {
 		init(data);
 	}
+
+    private int[][] map;
 	@Override
 	public void init(int w, int h, int v) {
 
+        map = new int[h][w];   //creating  a new array
+        for (int i = 0; i < h; i++){      // iterating on the entire 2D array
+            for(int j = 0; j < w; j++){
+                map[i][j]=v;           //inputting v in each index
+            }
+        }
 	}
 	@Override
 	public void init(int[][] arr) {
+        if (arr == null || arr.length == 0 || arr[0].length == 0) {              //null and empty columns exceptions
+            throw new RuntimeException();
+        }
+
+        for (int i = 1; i < arr.length; i++) {            //checks if each array has the same length (not ragged)
+            if (arr[0].length != arr[i].length) {
+                throw new RuntimeException();
+            }
+        }
+
 
 	}
 	@Override
 	public int[][] getMap() {
-		int[][] ans = null;
+		int[][] ans = new int [map.length][map[0].length];   //creating a new copy matrix of map with same size
+
+        for (int i = 0; i<map.length; i++){ //copies the cells of the matrix
+            for (int j = 0; j<map[0].length; j++){
+                ans[i][j]=map[i][j];
+            }
+        }
 
 		return ans;
 	}
