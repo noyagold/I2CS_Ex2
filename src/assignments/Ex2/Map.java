@@ -70,25 +70,27 @@ public class Map implements Map2D, Serializable{
 	}
 	@Override
 	public int getWidth() {
-        int ans = -1;
+        int ans = map [0].length;   // map's rows are identical --> the same width for all
 
         return ans;
     }
 	@Override
 	public int getHeight() {
-        int ans = -1;
+        int ans = map.length;
 
         return ans;
     }
 	@Override
 	public int getPixel(int x, int y) {
-        int ans = -1;
+        int ans = map[y][x];
 
         return ans;
     }
 	@Override
 	public int getPixel(Pixel2D p) {
-        int ans = -1;
+       int x =  p.getX();      //getting x
+       int y =  p.getY();      //getting y
+        int ans = map[y][x];   //value of the cell (x,y)
 
         return ans;
 	}
