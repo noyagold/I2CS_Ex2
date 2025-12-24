@@ -11,7 +11,7 @@ public class Map implements Map2D, Serializable{
 
     // edit this class below
 	/**
-	 * Constructs a w*h 2D raster map with an init value v.
+	 * Constructs a w*h 2D raster map with an init value v./
 	 * @param w
 	 * @param h
 	 * @param v

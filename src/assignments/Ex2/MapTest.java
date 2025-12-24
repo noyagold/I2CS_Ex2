@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Timeout;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
- * Intro2CS, 2026A, this is a very
+ * Intro2CS, 2026A, this is a very.
  */
 class MapTest {
     /**

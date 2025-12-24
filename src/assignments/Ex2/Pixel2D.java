@@ -2,7 +2,7 @@ package assignments.Ex2;
 
 /**
  * This interface represents an integer based coordinate of a 2D raster (aka a 2D matrix).
- * Ex2: Intro2CS - do NOT change this interface
+ * Ex2: Intro2CS - do NOT change this interface.
  */
 public interface Pixel2D {
     /**

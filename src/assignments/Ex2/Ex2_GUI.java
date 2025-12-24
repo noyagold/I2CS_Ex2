@@ -11,7 +11,7 @@ package assignments.Ex2;
  */
 public class Ex2_GUI {
     public static void drawMap(Map2D map) {
-        //
+        //bh
     }
 
     /**

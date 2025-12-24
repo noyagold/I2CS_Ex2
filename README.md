@@ -35,3 +35,4 @@ Class 11: https://docs.google.com/presentation/d/1N20U_zfZhr4uRqgwVZv_DogYGNmek-
 Assignments:
 Ex0: https://docs.google.com/document/d/1UtngN203ttQKf5ackCnXs4UnbAROZWHr/edit?usp=sharing&ouid=113711744349547563645&rtpof=true&sd=true
 
+# I2CS_Ex2.

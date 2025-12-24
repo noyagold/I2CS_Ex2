@@ -45,7 +45,7 @@ public class Index2D implements Pixel2D {
         if (p==null){return ans;}
         if (p instanceof Index2D ) {        //checks if p is from class Index2D
             Index2D pp = (Index2D) p;       // looks at p as an object from Index2D  (casting)
-           if (pp.getX()==x && pp.getY()==y) {   //object.method
+           if (pp.getX()==x && pp.getY()==y) {   //object.methodd
                ans = true;
            }
         }
