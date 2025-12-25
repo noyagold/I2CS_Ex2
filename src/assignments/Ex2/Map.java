@@ -243,6 +243,16 @@ public class Map implements Map2D, Serializable{
 
     @Override
     public void drawRect(Pixel2D p1, Pixel2D p2, int color) {
+        int minX = Math.min(p1.getX(), p2.getX());
+        int maxX = Math.max(p1.getX(), p2.getX());
+        int minY = Math.min(p1.getY(), p2.getY());
+        int maxY = Math.max(p1.getY(), p2.getY());
+
+        for (int y = minY; y <= maxY; y++) {
+            for (int x = minX; x <= maxX; x++) {
+             this.setPixel(x, y, color); //get color in the cells
+            }
+        }
 
     }
 
