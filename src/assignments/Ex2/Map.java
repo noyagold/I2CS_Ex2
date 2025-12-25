@@ -118,7 +118,7 @@ public class Map implements Map2D, Serializable{
         boolean ans = true;
         int x = p.getX();
         int y = p.getY();
-        if (0<=x && x<this.map[0].length && 0<=y && y<this.map.length) {
+        if (0<=x && x<this.map[0].length && 0<=y && y<this.map.length) { //looking if the x and y are in the ranges of the p's matrix
             return ans;
         }else {
             return false;
@@ -130,7 +130,9 @@ public class Map implements Map2D, Serializable{
     @Override
     public boolean sameDimensions(Map2D p) {
         boolean ans = false;
-
+        if(this.map.length==p.getHeight() && this.map[0].length==p.getWidth()){  //checks if the map's size is equal to p's size
+            return true;
+        }
         return ans;
     }
 
