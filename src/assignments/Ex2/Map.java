@@ -258,8 +258,22 @@ public class Map implements Map2D, Serializable{
 
     @Override
     public boolean equals(Object ob) {
-        boolean ans = false;
+        boolean ans = true;
+        if (!(ob instanceof Map2D)) { //ob is not a map (Map2D)
+            return false;}
 
+            Map2D other = (Map2D) ob;//declare ob(other) as from Map2D
+
+            if (!this.sameDimensions(other)){ //check if ob(other) and map have same dimensions
+                return false;
+        }
+            for (int y= 0; y<this.getHeight(); y++) {//every index's value checked if equal
+                for (int x= 0; x<this.getWidth(); x++) {
+                    if (this.getPixel(x, y) != other.getPixel(x, y)) {
+                        return false;
+                    }
+                }
+            }
         return ans;
     }
 	@Override
