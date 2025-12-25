@@ -165,8 +165,8 @@ public class Map implements Map2D, Serializable{
 
         int[][] newMap = new int[newHeight][newWidth];
 
-        for (int i = 0; i < this.map.length; i++) {
-            for (int j = 0; j < this.map[0].length; j++) {
+        for (int i = 0; i < newHeight; i++) {
+            for (int j = 0; j < newWidth; j++) {
                 int oldY = (int)(i/sy);
                 int oldX = (int)(j/sx);
                 oldY= Math.min(oldY, this.getHeight()-1); //so if it goes from big to small size it would choose the existing index
@@ -196,6 +196,48 @@ public class Map implements Map2D, Serializable{
 
     @Override
     public void drawLine(Pixel2D p1, Pixel2D p2, int color) {
+        int dx= Math.abs(p1.getX() - p2.getX());//distance x.p1-->x.p2
+        int dy= Math.abs(p1.getY() - p2.getY());//distance y.p1-->y.p2
+        int x1 = p1.getX(), y1 = p1.getY();
+        int x2 = p2.getX(), y2 = p2.getY();
+
+        if (p1.equals(p2)) { //first condition
+            this.setPixel(p1, color);
+            return; //early leave
+        }
+
+        if (dx >= dy && p1.getX() < p2.getX()) {//second condition
+            double m= (double)(y2 - y1)/(double)(x2 - x1);
+            double b= y1 - m*x1;
+
+            for (int x = x1; x <= x2; x++) {
+                int y = (int)Math.round(m * x + b);
+                this.setPixel(new Index2D(x, y), color);
+            }
+            return;
+        }
+
+        if(dx>=dy && p1.getX()>p2.getX()){//third condition
+            drawLine(p2, p1, color);
+            return;
+        }
+
+        if (dx < dy && y1 < y2) {//4th condition
+            double m2= (double)(x2 - x1)/(double)(y2 - y1);
+            double b2 = x1- m2 * y1;
+
+            for (int y = y1; y<= y2; y++) {
+                int x = (int)Math.round(m2*y+b2);
+                this.setPixel(new Index2D(x, y), color);
+            }
+            return;
+        }
+        if(dx<dy && y1>y2) {//fifth condition
+            drawLine(p2, p1, color);
+            return;
+        }
+
+
 
     }
 
