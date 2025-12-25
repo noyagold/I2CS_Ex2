@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class Map implements Map2D, Serializable{
 
     // edit this class below
+    private int[][] map;
 	/**
 	 * Constructs a w*h 2D raster map with an init value v.
 	 * @param w the width of the underlying 2D array.
@@ -31,14 +32,14 @@ public class Map implements Map2D, Serializable{
 		init(data);
 	}
 
-    private int[][] map;
+
 	@Override
 	public void init(int w, int h, int v) {
 
-        map = new int[h][w];   //creating  a new array
+        this.map = new int[h][w];   //creating  a new array
         for (int i = 0; i < h; i++){      // iterating on the entire 2D array
             for(int j = 0; j < w; j++){
-                map[i][j]=v;           //inputting v in each index
+                this.map[i][j]=v;           //inputting v in each index
             }
         }
 	}
@@ -54,15 +55,23 @@ public class Map implements Map2D, Serializable{
             }
         }
 
+        this.map = new int[arr.length][arr[0].length];
+
+        for (int i = 0; i < arr.length; i++) { //copies map to array
+            for (int j = 0; j < arr[i].length; j++) {
+                this.map[i][j] = arr[i][j];
+            }
+        }
+
 
 	}
 	@Override
 	public int[][] getMap() {
-		int[][] ans = new int [map.length][map[0].length];   //creating a new copy matrix of map with same size
+		int[][] ans = new int [this.map.length][this.map[0].length];   //creating a new copy matrix of map with same size
 
-        for (int i = 0; i<map.length; i++){ //copies the cells of the matrix
-            for (int j = 0; j<map[0].length; j++){
-                ans[i][j]=map[i][j];
+        for (int i = 0; i<this.map.length; i++){ //copies the cells of the matrix
+            for (int j = 0; j<this.map[0].length; j++){
+                ans[i][j]=this.map[i][j];
             }
         }
 
@@ -70,19 +79,19 @@ public class Map implements Map2D, Serializable{
 	}
 	@Override
 	public int getWidth() {
-        int ans = map [0].length;   // map's rows are identical --> the same width for all
+        int ans = this.map [0].length;   // map's rows are identical --> the same width for all
 
         return ans;
     }
 	@Override
 	public int getHeight() {
-        int ans = map.length;
+        int ans = this.map.length;
 
         return ans;
     }
 	@Override
 	public int getPixel(int x, int y) {
-        int ans = map[y][x];
+        int ans = this.map[y][x];
 
         return ans;
     }
@@ -90,25 +99,32 @@ public class Map implements Map2D, Serializable{
 	public int getPixel(Pixel2D p) {
        int x =  p.getX();      //getting x
        int y =  p.getY();      //getting y
-        int ans = map[y][x];   //value of the cell (x,y)
+        int ans = this.map[y][x];   //value of the cell (x,y)
 
         return ans;
 	}
 	@Override
 	public void setPixel(int x, int y, int v) {
-        map[y][x] = v;
+        this.map[y][x] = v;
     }
 
 	@Override
 	public void setPixel(Pixel2D p, int v) {
-      map[p.getY()][p.getX()] = v;
+      this.map[p.getY()][p.getX()] = v;
 	}
 
     @Override
     public boolean isInside(Pixel2D p) {
         boolean ans = true;
+        int x = p.getX();
+        int y = p.getY();
+        if (0<=x && x<this.map[0].length && 0<=y && y<this.map.length) {
+            return ans;
+        }else {
+            return false;
+        }
 
-        return ans;
+
     }
 
     @Override
