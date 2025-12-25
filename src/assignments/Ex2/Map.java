@@ -138,7 +138,13 @@ public class Map implements Map2D, Serializable{
 
     @Override
     public void addMap2D(Map2D p) {
-
+        if(this.sameDimensions(p)) {
+            for (int i = 0; i < p.getHeight(); i++) { //adds p (i,j) to map(i,j)
+                for (int j = 0; j < p.getWidth(); j++) {
+                    this.map[i][j] = p.getPixel(i, j) + this.map[i][j];
+                }
+            }
+        }
     }
 
     @Override
