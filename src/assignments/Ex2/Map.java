@@ -283,9 +283,20 @@ public class Map implements Map2D, Serializable{
 	 */
 	public int fill(Pixel2D xy, int new_v,  boolean cyclic) {
 		int ans = -1;
+        if(!isInside(xy)){ //is point inside map
+            return 0;
+        }
 
-		return ans;
+        int old_v = getPixel(xy);//save old color
+         if (old_v == new_v) { //no switched color
+             return 0;
+         }
+
+         return fillRecursion(xy.getX(),xy.getY(), old_v,new_v,cyclic);
+
 	}
+
+
 
 	@Override
 	/**
@@ -304,5 +315,33 @@ public class Map implements Map2D, Serializable{
         return ans;
     }
 	////////////////////// Private Methods ///////////////////////
+   private int fillRecursion(int x, int y, int old_v, int new_v, boolean cyclic) {
+       int w= this.getWidth();
+       int h = this.getHeight();
+        if(cyclic){ //if the map is like
+            if(x<0) x=w-1; //got to left side move to the right
+            if(y<0) y=h-1;//got to bottom  move to the upper side
+            if(x>=w) x=0; //got to the right side move to the left
+            if(y>=h) y=0;//got to upper side move to the bottom
+        }else {
+            if(x<0 || y<0 || y>=h|| x>=w) {
+                return 0;
+            }
+        }
+       Pixel2D p = new Index2D(x, y);//fill the pixel xy with the new color
+       if (getPixel(p) != old_v) {//look if its not old
+         return 0;
+     }
+       setPixel(p, new_v);//color the pixel
+       int count =1;
 
+       count = count + fillRecursion(x+1, y,old_v ,new_v, cyclic);//recursion
+       count = count + fillRecursion(x-1, y, old_v, new_v,cyclic);
+       count = count + fillRecursion(x, y+1,old_v, new_v, cyclic);
+       count = count + fillRecursion(x, y-1, old_v, new_v, cyclic);
+
+
+       return count;
+
+   }
 }
