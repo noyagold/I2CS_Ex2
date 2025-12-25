@@ -151,7 +151,7 @@ public class Map implements Map2D, Serializable{
     public void mul(double scalar) {
         for (int i = 0; i < this.map.length; i++) {
             for (int j = 0; j < this.map[0].length; j++) {
-               map[i][j] =(int) (this.map[i][j] * scalar);
+               this.map[i][j] =(int) (this.map[i][j] * scalar); //changes the values
             }
 
         }
@@ -160,11 +160,37 @@ public class Map implements Map2D, Serializable{
 
     @Override
     public void rescale(double sx, double sy) {
+        int newHeight =(int)(this.getHeight()*sy);
+        int newWidth =(int)(this.getWidth()*sx);
 
+        int[][] newMap = new int[newHeight][newWidth];
+
+        for (int i = 0; i < this.map.length; i++) {
+            for (int j = 0; j < this.map[0].length; j++) {
+                int oldY = (int)(i/sy);
+                int oldX = (int)(j/sx);
+                oldY= Math.min(oldY, this.getHeight()-1); //so if it goes from big to small size it would choose the existing index
+                oldX= Math.min(oldX, this.getWidth()-1);
+                newMap[i][j] = this.map[oldY][oldX];
+            }
+        }
+        this.map = newMap;
     }
 
     @Override
     public void drawCircle(Pixel2D center, double rad, int color) {
+        int h = this.getHeight();
+        int w = this.getWidth();
+        int Xc = center.getX();
+        int Yc = center.getY();
+
+        for (int i = 0; i<h; i++){//i=y
+            for (int j = 0; j<w; j++){//j=x
+                Pixel2D p= new Index2D(j,i);
+                double distance =center.distance2D(p);
+                if(distance<rad){this.setPixel(p,color);}
+            }
+        }
 
     }
 
