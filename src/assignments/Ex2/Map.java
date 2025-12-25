@@ -149,6 +149,12 @@ public class Map implements Map2D, Serializable{
 
     @Override
     public void mul(double scalar) {
+        for (int i = 0; i < this.map.length; i++) {
+            for (int j = 0; j < this.map[0].length; j++) {
+               map[i][j] =(int) (this.map[i][j] * scalar);
+            }
+
+        }
 
     }
 
