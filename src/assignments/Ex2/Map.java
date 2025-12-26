@@ -347,7 +347,6 @@ public class Map implements Map2D, Serializable{
         }
         }
 
-
         if (!visited[p2.getY()][p2.getX()]) {//if not arrived to p2 -->null
             return null;
         }
@@ -360,9 +359,42 @@ public class Map implements Map2D, Serializable{
     @Override
     public Map2D allDistance(Pixel2D start, int obsColor, boolean cyclic) {
         Map2D ans = null;  // the result.
+        if (!isInside(start)) {//start in the map
+            throw new RuntimeException(); }
+        int w = this.getWidth();
+        int h = this.getHeight();
+        ans = new Map(w, h, -1); //implementing the new map with values -1
 
+        if (getPixel(start) == obsColor) { //if the pixel start is on an obs
+            return ans;
+        }
+        ans.setPixel(start, 0); //starting point is distance 0
+        java.util.ArrayDeque<Pixel2D> q = new java.util.ArrayDeque<Pixel2D>(); //Creates an empty queue of pixels for BFS
+        q.add(new Index2D(start));//a copy of the starting point in the que
+        int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}; //array representing directions
+
+        while(!q.isEmpty()) { //as long as there pixels in the que
+            Pixel2D cur = q.remove(); //getting out the next pixel current one working on
+            int d = ans.getPixel(cur); //the dis of the current pixel from start
+            for (int i = 0; i < directions.length; i++) {
+                Pixel2D nei = neighbor(cur, directions[i][0], directions[i][1], cyclic); // get the neighbor of the current pixel using the directions array
+                if (nei == null) { //no neighbor
+                    continue;
+                }
+                if (getPixel(nei) == obsColor) { //obs
+                    continue;
+                }
+                if (ans.getPixel(nei) != -1) {//visited
+                    continue;
+                }
+                ans.setPixel(nei, d + 1); //add 1 to distance
+                q.add(nei); //add neib so neib will be handled afterwards
+            }
+        }
         return ans;
     }
+
+
 	////////////////////// Private Methods ///////////////////////
    private int fillRecursion(int x, int y, int old_v, int new_v, boolean cyclic) {
        int w= this.getWidth();
@@ -403,7 +435,7 @@ public class Map implements Map2D, Serializable{
        int nx = cur.getX() + dx;//finding right and left neighbors
        int ny = cur.getY() + dy;
 
-      if(cyclic){ //if the map is like
+      if(cyclic){ //if the map is cyclic
         if(nx<0) nx=w-1; //got to left side move to the right
         if(ny<0) ny=h-1;//got to bottom  move to the upper side
         if(nx>=w) nx=0; //got to the right side move to the left
@@ -428,7 +460,8 @@ public class Map implements Map2D, Serializable{
            for (int i = 0; i < rev.size(); i++) {//filling the array from end to finish
                path[i] = rev.get(rev.size() - 1 - i);
      }
-       return path;}
+       return path;
+    }
 }
 
 
