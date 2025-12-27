@@ -6,9 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class Index2DTest {
 
     @Test
+    //x negative
     public void testGetX() {
-        Index2D p = new Index2D(3, 4);
-        assertEquals(3, p.getX());
+        Index2D p = new Index2D(-1, 4);
+        assertEquals(-1, p.getX());
     }
 
     @Test
@@ -24,4 +25,16 @@ public class Index2DTest {
         Index2D p = new Index2D(7, 0);
         assertEquals(0, p.getY());
     }
+
+    @Test
+// normal distance
+    public void testDistance2DNormal() {
+        Index2D p1 = new Index2D(0, 0);
+        Index2D p2 = new Index2D(3, 4);
+        assertEquals(5.0, p1.distance2D(p2));
+    }
+
+
+
+
 }
