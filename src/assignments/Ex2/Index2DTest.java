@@ -79,4 +79,23 @@ public class Index2DTest {
         assertEquals("(-1,-2)", a.toString());
     }
 
+    @Test
+// equals true cases
+    public void testEqualsTrue() {
+        Index2D a = new Index2D(2, 3);
+        Index2D b = new Index2D(2, 3);
+        assertTrue(a.equals(b));
+        assertTrue(a.equals(a)); // same object
+    }
+
+    @Test
+// equals false cases
+    public void testEqualsFalse() {
+        Index2D a = new Index2D(2, 3);
+        Index2D b = new Index2D(3, 2);
+        assertFalse(a.equals(b));     // different values
+        assertFalse(a.equals(null));  // null
+        assertFalse(a.equals("x"));   // different type
+    }
+
 }
