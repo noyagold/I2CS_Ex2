@@ -10,4 +10,11 @@ public class Index2DTest {
         Index2D p = new Index2D(3, 4);
         assertEquals(3, p.getX());
     }
+
+    @Test
+// getX = 0
+    public void testGetX_Zero() {
+        Index2D p = new Index2D(0, 5);
+        assertEquals(0, p.getX());
+    }
 }
