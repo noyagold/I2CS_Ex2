@@ -139,9 +139,9 @@ public class Map implements Map2D, Serializable{
     @Override
     public void addMap2D(Map2D p) {
         if(this.sameDimensions(p)) {
-            for (int i = 0; i < p.getHeight(); i++) { //adds p (i,j) to map(i,j)
-                for (int j = 0; j < p.getWidth(); j++) {
-                    this.map[i][j] = p.getPixel(i, j) + this.map[i][j];
+            for (int i = 0; i < p.getHeight(); i++) { //i=y
+                for (int j = 0; j < p.getWidth(); j++) {//j=x
+                    this.map[i][j] = p.getPixel(j, i) + this.map[i][j];
                 }
             }
         }
@@ -395,8 +395,9 @@ public class Map implements Map2D, Serializable{
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}; //array representing directions
 
         while(!q.isEmpty()) { //as long as there pixels in the que
-            Pixel2D cur = q.remove(); //getting out the next pixel current one working on
+            Pixel2D cur = q.removeFirst(); //getting out the next pixel current one working on
             int d = ans.getPixel(cur); //the dis of the current pixel from start
+
             for (int i = 0; i < directions.length; i++) {
                 Pixel2D nei = neighbor(cur, directions[i][0], directions[i][1], cyclic); // get the neighbor of the current pixel using the directions array
                 if (nei == null) { //no neighbor
