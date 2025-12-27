@@ -17,4 +17,11 @@ public class Index2DTest {
         Index2D p = new Index2D(0, 5);
         assertEquals(0, p.getX());
     }
+
+    @Test
+// getY = 0
+    public void testGetY_Zero() {
+        Index2D p = new Index2D(7, 0);
+        assertEquals(0, p.getY());
+    }
 }
