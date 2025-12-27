@@ -44,9 +44,34 @@ import java.io.*;
      */
     public static Map2D loadMap(String mapFileName) {
         Map2D ans = null;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(mapFileName));//br always wraps another reader
 
-            return map;
+            String line = br.readLine(); //reading starts , first line
+            String[] parts = line.trim().split("\\s+");//handles whitespaces and trims space ends
+
+            int height = Integer.parseInt(parts[0]);//transfer height and width (strings) to int
+            int width  = Integer.parseInt(parts[1]);
+
+            ans = new Map(width, height, 0); //create object map with taken size(height,width)
+
+            for (int row = 0; row < height; row++) {
+                line = br.readLine(); //read next raw
+                parts = line.trim().split("\\s+"); //clean it
+
+                for (int col = 0; col < width; col++) {
+                    int par = Integer.parseInt(parts[col]); //parse every cell in that raw
+                    ans.setPixel(col, row, par);//put par in the map in designated place
+                }
+            }
+
+            br.close();//close file
+            return ans;
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
 
     /**
      *
