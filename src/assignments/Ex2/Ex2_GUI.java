@@ -1,7 +1,7 @@
 package assignments.Ex2;
 import assignments.Ex1.StdDraw;
 
-
+import java.awt.*;
 import java.io.*;
 
 
@@ -65,7 +65,12 @@ import java.io.*;
 
 
     /// ///////////// Private functions ///////////////
-
+    private static Color colorByValue(int v) {
+        if (v == -1) {
+            return Color.BLACK;   //obs
+        }
+        return Color.WHITE;       // free space
+    }
 }
 
 
