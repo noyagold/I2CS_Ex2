@@ -1,4 +1,10 @@
 package assignments.Ex2;
+import assignments.Ex1.StdDraw;
+
+
+import java.io.*;
+
+
 
 /**
  * Intro2CS_2026A
@@ -9,9 +15,27 @@ package assignments.Ex2;
  *
  *
  */
-public class Ex2_GUI {
+
+    public class Ex2_GUI {
     public static void drawMap(Map2D map) {
-        //bh
+        int c = map.getWidth();
+        int r = map.getHeight();
+        StdDraw.clear();
+        StdDraw.setScale(0.0, 1.0);
+
+        double cellSize = 1.0 / Math.max(c, r);
+        double half = cellSize / 2.0; //for fill square
+
+        for (int i = 0; i <r; i++){ //x-rows
+            for (int j= 0; j < c; j++) { //y-columns
+                int v = map.getPixel(j, i);
+                StdDraw.setPenColor(colorByValue(v));
+                    double x = (j+ 0.5) * cellSize;
+                double y = 1 - (i + 0.5) * cellSize; //upsidedown
+                StdDraw.filledSquare(x, y, half);
+            }
+            }
+        StdDraw.show();
     }
 
     /**
@@ -21,8 +45,8 @@ public class Ex2_GUI {
     public static Map2D loadMap(String mapFileName) {
         Map2D ans = null;
 
-        return ans;
-    }
+            return map;
+        }
 
     /**
      *
@@ -31,12 +55,18 @@ public class Ex2_GUI {
      */
     public static void saveMap(Map2D map, String mapFileName) {
 
-
     }
+
     public static void main(String[] a) {
         String mapFile = "map.txt";
-        Map2D map = loadMap(mapFile);
+        Map2D map = loadMap("map.txt");
         drawMap(map);
     }
+
+
     /// ///////////// Private functions ///////////////
+
 }
+
+
+
