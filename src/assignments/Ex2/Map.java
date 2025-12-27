@@ -330,16 +330,16 @@ public class Map implements Map2D, Serializable{
         if (getPixel(p1)==obsColor || getPixel(p2)==obsColor)  {//if the value of p1 or p2 is on an obs
             return ans;
         }
-        if (p1.equals(p2)){return new Pixel2D[]{ new Index2D(p1)};} //if p1 equals p2 return array with p1
+        if (p1.equals(p2)) {
+            return new Pixel2D[]{ new Index2D(p1) };
+        }
         int w= this.getWidth();
         int h = this.getHeight();
 
-        boolean[][] visited = new boolean[h][w];//helping to check if a p has been run over
-
+        boolean[][] visited = new boolean[h][w];//helping to check if a p has been visited
         Pixel2D[][] start = new Pixel2D[h][w]; //to remember the path
 
         java.util.ArrayDeque<Pixel2D> queue = new java.util.ArrayDeque<Pixel2D>(); //Creates an empty queue of pixels for BFS
-
         queue.addLast(new Index2D(p1.getX(), p1.getY())); //putting the starting point (p1) in the que
         visited[p1.getY()][p1.getX()] = true; //visit check
         start[p1.getY()][p1.getX()] = null; //the path of p1 is null
@@ -347,11 +347,12 @@ public class Map implements Map2D, Serializable{
         int[] dx = { 1, -1, 0, 0 };//setting the 4 possible directions
         int[] dy = { 0, 0, 1, -1 };
 
-        while (!queue.isEmpty()) {//as long as the que is not empty
+        boolean found = false;
+
+        while (!queue.isEmpty()&& !found) {//as long as the que is not empty
             Pixel2D cur = queue.removeFirst(); //remove the first pixel
 
-        for (int i = 0; i < 4; i++) {//check the 4 directions
-
+            for (int i = 0; i < 4; i++) {//check the 4 directions
             Pixel2D next = neighbor(cur, dx[i], dy[i], cyclic); //finding neighbor
             if (next == null) continue; //if theres no pixel neighbor -->nul
 
@@ -363,6 +364,9 @@ public class Map implements Map2D, Serializable{
             visited[ny][nx] = true;//marked as checked
             start[ny][nx] = cur;//save the path from where we got to neib
             queue.addLast(next); //add neib to que
+            if (next.equals(p2)) { // found target
+                queue.clear(); // stop BFS
+                break;}
         }
         }
 
