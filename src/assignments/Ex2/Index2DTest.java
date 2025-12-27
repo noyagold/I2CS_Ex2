@@ -65,6 +65,18 @@ public class Index2DTest {
         assertEquals(5.0, p.distance2D(a), 0.001);
     }
 
+    @Test
+// toString normal
+    public void testToStringNormal() {
+        Index2D a = new Index2D(3, 5);
+        assertEquals("(3,5)", a.toString());
+    }
 
+    @Test
+// toString negative
+    public void testToStringNegative() {
+        Index2D a = new Index2D(-1, -2);
+        assertEquals("(-1,-2)", a.toString());
+    }
 
 }
