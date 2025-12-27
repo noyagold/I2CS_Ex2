@@ -79,8 +79,23 @@ import java.io.*;
      * @param mapFileName
      */
     public static void saveMap(Map2D map, String mapFileName) {
+        try {
+            PrintWriter out = new PrintWriter(new FileWriter(mapFileName)); //prepare converting int to string txt and writing in file
 
+            out.println(map.getHeight() + " " + map.getWidth());//first line is height & width
+
+            for (int row = 0; row < map.getHeight(); row++) { //x
+                for (int col = 0; col < map.getWidth(); col++) { //y
+                    out.print(map.getPixel(col, row) + " ");
+                }
+                out.println();//every finished row start lower row
+            }
+            out.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     public static void main(String[] a) {
         String mapFile = "map.txt";
