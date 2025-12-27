@@ -365,7 +365,7 @@ public class Map implements Map2D, Serializable{
             start[ny][nx] = cur;//save the path from where we got to neib
             queue.addLast(next); //add neib to que
             if (next.equals(p2)) { // found target
-                queue.clear(); // stop BFS.
+                found=true; // stop BFS.
                 break;}
         }
         }
