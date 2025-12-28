@@ -195,6 +195,23 @@ class MapTest {
         assertFalse(_vals.sameDimensions(_obs));
     }
 
+    @Test
+    void testAddMap2D() {
+        _m0.addMap2D(_m1);
+        assertEquals(2, _m0.getPixel(1,0));
+    }
+
+    @Test
+    void testAddMap2D_DifferentSize() {
+        Map2D before = new Map(map_m0);
+        _m0.addMap2D(_vals);
+        assertEquals(before, _m0);
+    }
+
+
+
+
+
 
     }
 
