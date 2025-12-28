@@ -269,6 +269,14 @@ public class Map implements Map2D, Serializable{
 
     }
 
+    /**
+     * I compute dx and dy and extract (x1,y1) and (x2,y2).
+     * For the more horizontal case I compute m and b and loop over x,
+     * then I calculate y = round(m*x + b) and color that pixel.
+     * For the more vertical case I compute m2 and b2 and loop over y,
+     * then I calculate x = round(m2*y + b2) and color that pixel.
+     * When the direction is reversed, I swap the points by calling drawLine(p2,p1,..).
+     */
     @Override
     public void drawLine(Pixel2D p1, Pixel2D p2, int color) {
         int dx= Math.abs(p1.getX() - p2.getX());//distance x.p1-->x.p2
@@ -315,6 +323,11 @@ public class Map implements Map2D, Serializable{
 
 
     }
+    /**
+     * I use Math.min and Math.max to determine the rectangle boundaries.
+     * After that I loop over the y range and inside it over the x range,
+     * and set the color for each pixel inside the rectangle.
+     */
 
     @Override
     public void drawRect(Pixel2D p1, Pixel2D p2, int color) {
@@ -325,7 +338,7 @@ public class Map implements Map2D, Serializable{
 
         for (int y = minY; y <= maxY; y++) {
             for (int x = minX; x <= maxX; x++) {
-             this.setPixel(x, y, color); //get color in the cells
+             this.setPixel(x, y, color); //set color in the cells
             }
         }
 
