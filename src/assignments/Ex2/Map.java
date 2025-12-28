@@ -419,7 +419,15 @@ public class Map implements Map2D, Serializable{
 
 	////////////////////// Private Methods ///////////////////////
 
-
+    /**
+     * Returns the neighboring pixel of the current pixel in the given direction.
+     * If the map is cyclic, the neighbor wraps around the map boundaries.
+     * @param cur the current pixel.
+     * @param dx movement direction on the x axis.
+     * @param dy movement direction on the y axis.
+     * @param cyclic indicates whether the map is cyclic.
+     * @return the neighbor pixel, or null if out of bounds and not cyclic.
+     */
    private Pixel2D neighbor(Pixel2D cur, int dx, int dy, boolean cyclic) {
        int w= this.getWidth();
        int h = this.getHeight();
