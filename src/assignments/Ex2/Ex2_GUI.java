@@ -100,6 +100,7 @@ import java.io.*;
 
     public static void main(String[] a) {
         fillExample();
+        shortestPathExample();
     }
 
 
@@ -151,5 +152,38 @@ import java.io.*;
         drawMap(map);
         StdDraw.pause(1000);
     }
+
+    /**
+     * shortest path example:
+     * Creates a simple maze and shows the shortest path from start to target.
+     */
+    private static void shortestPathExample() {
+        int size = 30;
+        Map2D map = new Map(size, size, 0);
+        for (int i = 0; i < size; i++) {//borders
+            map.setPixel(i, 0, -1);
+            map.setPixel(i, size-1, -1);
+            map.setPixel(0, i, -1);
+            map.setPixel(size-1, i, -1);
+        }
+        for (int y = 2; y < size-2; y++) map.setPixel(10, y, -1);//maze
+        for (int x = 10; x < size-2; x++) map.setPixel(x, 18, -1);
+        map.setPixel(10, 8, 0);  // gaps
+        map.setPixel(22, 18, 0);
+        Pixel2D start = new Index2D(2, 2); //start and target
+        Pixel2D target = new Index2D(27, 27);
+        map.setPixel(start, 2);
+        map.setPixel(target, 3);
+        drawMap(map); //the before
+        Pixel2D[] path = map.shortestPath(start, target, -1, false);
+        for (Pixel2D p : path) {//each p in path
+            if (!p.equals(start) && !p.equals(target)) {
+                map.setPixel(p, 4); // path color
+            }
+        }
+        drawMap(map);
+        StdDraw.pause(1200);
+    }
+
 
 }
