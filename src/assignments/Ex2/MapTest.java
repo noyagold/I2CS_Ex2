@@ -15,7 +15,7 @@ class MapTest {
     private int[][] map_m0 = {{0,1,2}, {5,6,7}, {10,11,12}};
     private int[][] map_m1 = {{0,1,2}, {5,6,7}, {10,11,12}};
     private int[][] _map_3_3 = {{0,1,0}, {1,0,1}, {0,1,0}};
-    private int[][] map_0 = {{0}};
+    private int[][] map_one = {{0}};
     private int[][] map_vals = {{1, 2, 3}, {4, 5, 6}};
     private int[][] map_obs = {{0, -1, 0}, {0, -1, 0}, {0,  0, 0}};
     private int[][] map_null = null;
@@ -28,7 +28,7 @@ class MapTest {
         _m0 = new Map(map_m0);
         _m1 = new Map(map_m1);
         _m3_3 = new Map(_map_3_3);
-        _one = new Map(map_0);
+        _one = new Map(map_one);
         _vals = new Map(map_vals);
         _obs = new Map(map_obs);
 
@@ -136,6 +136,37 @@ class MapTest {
         assertEquals(-1, _obs.getPixel(p5));
     }
 
+        @Test
+        void testSetPixelXY() {
+            _m3_3.setPixel(1, 0, 9);
+            assertEquals(9, _m3_3.getPixel(1, 0));
+            _m0.setPixel(2, 1, 99);
+            assertEquals(99, _m0.getPixel(2, 1));
+            _one.setPixel(0, 0, 7);
+            assertEquals(7, _one.getPixel(0, 0));
+            _obs.setPixel(1, 0, 7);
+            assertEquals(7, _obs.getPixel(1, 0));
+        }
+
+    @Test
+    void testSetPixelP() {
+        Pixel2D p1 = new Index2D(1, 0);
+        _m3_3.setPixel(p1, 8);
+        assertEquals(8, _m3_3.getPixel(p1));
+        Pixel2D p2 = new Index2D(2, 1);
+        _m0.setPixel(p2, 4);
+        assertEquals(4, _m0.getPixel(p2));
+        Pixel2D p3 = new Index2D(0, 0);
+        _one.setPixel(p3, -1);
+        assertEquals(-1, _one.getPixel(p3));
+        Pixel2D p4 = new Index2D(1, 1);
+        _obs.setPixel(p4, 6);
+        assertEquals(6, _obs.getPixel(p4));}
+    }
 
 
-}
+
+
+
+
+
