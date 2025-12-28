@@ -160,6 +160,11 @@ public class Map implements Map2D, Serializable{
       this.map[p.getY()][p.getX()] = v;
 	}
 
+    /**
+     * I check that both x and y are inside the valid ranges
+     * of the map dimensions.
+     */
+
     @Override
     public boolean isInside(Pixel2D p) {
         boolean ans = true;
@@ -173,6 +178,11 @@ public class Map implements Map2D, Serializable{
 
 
     }
+
+    /**
+     * I compare the width and height of both maps
+     * to make sure they have the same dimensions.
+     */
 
     @Override
     public boolean sameDimensions(Map2D p) {
