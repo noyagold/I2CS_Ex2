@@ -76,7 +76,6 @@ class MapTest {
     }
 
 
-
     //same Diminutions
     @Test
     void testGetMap() {
@@ -116,12 +115,25 @@ class MapTest {
     @Test
     void testGetPixelXY() {
         assertEquals(1, _m3_3.getPixel(1,0));
+        assertEquals(0, _m0.getPixel(0, 0));
+        assertEquals(7, _m0.getPixel(2, 1));
+        assertEquals(0, _one.getPixel(0, 0));
+        assertEquals(-1, _obs.getPixel(1, 0));
+        assertEquals(0, _obs.getPixel(0, 2));
     }
 
     @Test
     void testGetPixelP() {
-        Pixel2D p = new Index2D(1,0);
-        assertEquals(1, _m3_3.getPixel(p));
+        Pixel2D p1 = new Index2D(1, 0);
+        Pixel2D p2 = new Index2D(0, 1);
+        assertEquals(1, _m3_3.getPixel(p1));
+        assertEquals(1, _m3_3.getPixel(p2));
+        Pixel2D p3 = new Index2D(2, 1);
+        assertEquals(7, _m0.getPixel(p3));
+        Pixel2D p4 = new Index2D(0, 0);
+        assertEquals(0, _one.getPixel(p4));
+        Pixel2D p5 = new Index2D(1, 0);
+        assertEquals(-1, _obs.getPixel(p5));
     }
 
 
