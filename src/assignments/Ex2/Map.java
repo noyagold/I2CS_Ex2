@@ -193,6 +193,11 @@ public class Map implements Map2D, Serializable{
         return ans;
     }
 
+    /**
+     * After checking that the dimensions match,
+     * I add the values of the given map to this map cell by cell.
+     */
+
     @Override
     public void addMap2D(Map2D p) {
         if(this.sameDimensions(p)) {
