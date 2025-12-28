@@ -47,4 +47,12 @@ class MapTest {
         _m1.init(_map_3_3);
         assertEquals(_m0,_m1);
     }
+
+    //same Diminutions
+    @Test
+    void testGetMap() {
+        int[][] a = _m3_3.getMap();
+        assertEquals(3, a.length);
+        assertEquals(3, a[0].length);
+    }
 }
