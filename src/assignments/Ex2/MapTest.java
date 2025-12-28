@@ -262,6 +262,7 @@ class MapTest {
             assertEquals(9, _m3_3.getPixel(1,1));
         }
 
+    // Tests that shortestPath returns a valid path from start to end and that the path does not go through obstacle cells
     @Test
     void testShortestPath() {
         Pixel2D start = new Index2D(0, 0);
@@ -274,6 +275,8 @@ class MapTest {
             assertNotEquals(-1, _obs.getPixel(p));}
     }
 
+    // Tests allDistance on a map with obstacles.
+    // Verifies correct distance values and that obstacles stay marked as -1
     @Test
     void testAllDistanceWithObstacles() {
         Map2D m = new Map(new int[][]{
