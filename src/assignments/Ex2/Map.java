@@ -506,6 +506,25 @@ public class Map implements Map2D, Serializable{
 
             return ans;
 	}
+
+    /**
+     * I implemented allDistance using BFS on a new map.
+     * First I check that the start pixel is inside the map and create
+     * a new map initialized with -1 values to represent unreachable cells.
+     *
+     * If the start pixel is an obstacle, I immediately return the map as is.
+     * Otherwise, I set the start pixel distance to 0 and add it to a BFS queue.
+     *
+     * While the queue is not empty, I remove a pixel and read its distance
+     * from the result map. Then I check its 4 neighbors using neighbor,
+     * skipping null neighbors, obstacle pixels, and pixels that already
+     * have a distance assigned.
+     *
+     * For every valid neighbor, I set its distance to the current distance +1
+     * and add it to the queue. This way each pixel is visited once and gets
+     * the shortest distance from the start.
+     */
+
     @Override
     public Map2D allDistance(Pixel2D start, int obsColor, boolean cyclic) {
         Map2D ans = null;  // the result.
