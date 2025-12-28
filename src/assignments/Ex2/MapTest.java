@@ -276,6 +276,25 @@ class MapTest {
         }
     }
 
+    @Test
+    void testAllDistanceWithObstacles() {
+        Map2D m = new Map(new int[][]{
+                {0, -1, 0, 0},
+                {0, -1, 0, -1},
+                {0,  0, 0,  0}
+        });
+
+        Pixel2D start = new Index2D(0, 0);
+        Map2D dist = m.allDistance(start, -1, false);
+
+        assertEquals(0, dist.getPixel(0, 0)); // start
+        assertEquals(1, dist.getPixel(0, 1));
+        assertEquals(2, dist.getPixel(0, 2));
+        assertEquals(3, dist.getPixel(1, 2));
+        assertEquals(4, dist.getPixel(2, 2));
+        assertEquals(-1, dist.getPixel(1, 0)); // obstacle
+    }
+
 
     }
 
