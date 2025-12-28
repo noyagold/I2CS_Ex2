@@ -88,7 +88,7 @@ Screenshots and Results 📸
 Below are examples of outputs generated using the Ex2_GUI.
                             
 
- ⸻                        <img width="1073" height="1067" alt="צילום מסך 2025-12-28 ב-21 16 57" src="https://github.com/user-attachments/assets/663cf578-66ee-458c-9fd1-a79b7389497c" />
+ ⸻                        <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 16 57" src="https://github.com/user-attachments/assets/663cf578-66ee-458c-9fd1-a79b7389497c" />
 
 
 ⸻                        <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 53" src="https://github.com/user-attachments/assets/983d2177-128b-4dce-a582-c54595396b7f" />
