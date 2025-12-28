@@ -180,6 +180,21 @@ class MapTest {
         assertFalse(_one.isInside(new Index2D(0, 1)));
     }
 
+    @Test
+    void testSameDimensionsTrue() {
+        assertTrue(_m0.sameDimensions(_m1));
+        assertTrue(_m1.sameDimensions(_m0));
+        Map2D a = new Map(_map_3_3);
+        assertTrue(_m3_3.sameDimensions(a));
+    }
+
+    @Test
+    void testSameDimensionsFalse() {
+        assertFalse(_m0.sameDimensions(_one));
+        assertFalse(_one.sameDimensions(_vals));
+        assertFalse(_vals.sameDimensions(_obs));
+    }
+
 
     }
 
