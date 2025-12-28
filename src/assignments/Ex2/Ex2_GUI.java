@@ -98,20 +98,35 @@ import java.io.*;
 
 
     public static void main(String[] a) {
-        String mapFile = "map.txt";
-        Map2D map = loadMap("map.txt");
+        String mapFile = "map.txt";// <-- change map file name to view different examples (:
+        Map2D map = loadMap(mapFile);
         drawMap(map);
     }
 
 
     /// ///////////// Private functions ///////////////
+
     private static Color colorByValue(int v) {
-        if (v == -1) {
-            return Color.BLACK;   //obs
-        }
-        return Color.WHITE;       // free space
+
+        if (v == -1) return Color.BLACK;                  // obstacle
+        if (v == 0)  return new Color(230,230,230);       // background
+
+        if (v == 1)  return Color.WHITE;
+        if (v == 2)  return new Color(70,120,255);        // start
+        if (v == 3)  return new Color(255,200,0);         // target
+        if (v == 4)  return new Color(0,180,0);           // fill
+        if (v == 5)  return new Color(255,80,80);
+        if (v == 6)  return new Color(160,90,255);
+        if (v == 7)  return new Color(0,200,200);
+        if (v == 8)  return new Color(255,140,0);
+
+
+        return Color.DARK_GRAY;
     }
 }
+
+
+
 
 
 
