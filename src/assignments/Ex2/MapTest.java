@@ -71,6 +71,10 @@ class MapTest {
         assertEquals(1, _m3_3.getPixel(1,0));
     }
 
-
+    @Test
+    void testGetPixelP() {
+        Pixel2D p = new Index2D(1,0);
+        assertEquals(1, _m3_3.getPixel(p));
+    }
 
 }
