@@ -240,6 +240,15 @@ class MapTest {
         assertEquals(9, _m0.getPixel(2,1));
     }
 
+    @Test
+    void testDrawRect() {
+        _m3_3.drawRect(new Index2D(0,0), new Index2D(1,1), 7);
+        assertEquals(7, _m3_3.getPixel(0,0));
+        assertEquals(7, _m3_3.getPixel(1,1));
+    }
+
+
+
 
 
 
