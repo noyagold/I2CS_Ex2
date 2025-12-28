@@ -97,12 +97,20 @@ class MapTest {
 
         @Test
     void testGetWidth() {
-        assertEquals(3, _m3_3.getWidth());
+            assertEquals(3, _m3_3.getWidth());
+            assertEquals(3, _m0.getWidth());
+            assertEquals(1, _one.getWidth());
+            assertEquals(3, _obs.getWidth());
+            assertEquals(3, _vals.getWidth());
     }
 
     @Test
     void testGetHeight() {
         assertEquals(3, _m3_3.getHeight());
+        assertEquals(3, _m0.getHeight());
+        assertEquals(1, _one.getHeight());
+        assertEquals(3, _obs.getHeight());
+        assertEquals(2, _vals.getHeight());
     }
 
     @Test
