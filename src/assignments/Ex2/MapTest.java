@@ -5,18 +5,23 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 /**
  * Intro2CS, 2026A, this is a very.
  */
 class MapTest {
     /**
      */
+    private int[][] map_m0 = {{0,1,2}, {5,6,7}, {10,11,12}};
+    private int[][] map_m1 = {{0,1,2}, {5,6,7}, {10,11,12}};
     private int[][] _map_3_3 = {{0,1,0}, {1,0,1}, {0,1,0}};
     private Map2D _m0, _m1, _m3_3;
     @BeforeEach
-    public void setuo() {
+    public void setup() {
+        _m0 = new Map(map_m0);
+        _m1 = new Map(map_m1);
         _m3_3 = new Map(_map_3_3);
+
     }
     @Test
     @Timeout(value = 1, unit = SECONDS)
