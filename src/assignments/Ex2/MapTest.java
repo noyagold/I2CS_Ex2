@@ -15,12 +15,19 @@ class MapTest {
     private int[][] map_m0 = {{0,1,2}, {5,6,7}, {10,11,12}};
     private int[][] map_m1 = {{0,1,2}, {5,6,7}, {10,11,12}};
     private int[][] _map_3_3 = {{0,1,0}, {1,0,1}, {0,1,0}};
+    private int[][] map_0 = {{0}};
+    private int[][] map_vals = {{1, 2, 3}, {4, 5, 6}};
+    private int[][] map_obs = {{0, -1, 0}, {0, -1, 0}, {0,  0, 0}};
+    private int[][] map_null = null;
+    private int[][] map_empty_row = {{}};
+
     private Map2D _m0, _m1, _m3_3;
     @BeforeEach
     public void setup() {
         _m0 = new Map(map_m0);
         _m1 = new Map(map_m1);
         _m3_3 = new Map(_map_3_3);
+
 
     }
     @Test
@@ -76,5 +83,7 @@ class MapTest {
         Pixel2D p = new Index2D(1,0);
         assertEquals(1, _m3_3.getPixel(p));
     }
+
+
 
 }
