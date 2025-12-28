@@ -6,6 +6,7 @@ import java.io.*;
 
 
 
+
 /**
  * Intro2CS_2026A
  * This class represents a Graphical User Interface (GUI) for Map2D.
@@ -26,15 +27,15 @@ import java.io.*;
         double cellSize = 1.0 / Math.max(c, r);
         double half = cellSize / 2.0; //for fill square
 
-        for (int i = 0; i <r; i++){ //x-rows
-            for (int j= 0; j < c; j++) { //y-columns
+        for (int i = 0; i < r; i++) { //x-rows
+            for (int j = 0; j < c; j++) { //y-columns
                 int v = map.getPixel(j, i);
                 StdDraw.setPenColor(colorByValue(v));
-                    double x = (j+ 0.5) * cellSize;
+                double x = (j + 0.5) * cellSize;
                 double y = 1 - (i + 0.5) * cellSize; //upsidedown
                 StdDraw.filledSquare(x, y, half);
             }
-            }
+        }
         StdDraw.show();
     }
 
@@ -51,7 +52,7 @@ import java.io.*;
             String[] parts = line.trim().split("\\s+");//handles whitespaces and trims space ends
 
             int height = Integer.parseInt(parts[0]);//transfer height and width (strings) to int
-            int width  = Integer.parseInt(parts[1]);
+            int width = Integer.parseInt(parts[1]);
 
             ans = new Map(width, height, 0); //create object map with taken size(height,width)
 
@@ -98,9 +99,7 @@ import java.io.*;
 
 
     public static void main(String[] a) {
-        String mapFile = "map.txt";// <-- change map file name to view different examples (:
-        Map2D map = loadMap(mapFile);
-        drawMap(map);
+        fillExample();
     }
 
 
@@ -109,24 +108,48 @@ import java.io.*;
     private static Color colorByValue(int v) {
 
         if (v == -1) return Color.BLACK;                  // obstacle
-        if (v == 0)  return new Color(230,230,230);       // background
+        if (v == 0) return new Color(230, 230, 230);       // background
 
-        if (v == 1)  return Color.WHITE;
-        if (v == 2)  return new Color(70,120,255);        // start
-        if (v == 3)  return new Color(255,200,0);         // target
-        if (v == 4)  return new Color(0,180,0);           // fill
-        if (v == 5)  return new Color(255,80,80);
-        if (v == 6)  return new Color(160,90,255);
-        if (v == 7)  return new Color(0,200,200);
-        if (v == 8)  return new Color(255,140,0);
+        if (v == 1) return Color.white;
+        if (v == 2) return new Color(70, 120, 255);        // start
+        if (v == 3) return new Color(255, 200, 0);         // target
+        if (v == 4) return new Color(0, 180, 0);           // fill
+        if (v == 5) return new Color(255, 80, 80);
+        if (v == 6) return new Color(160, 90, 255);
+        if (v == 7) return new Color(0, 200, 200);
+        if (v == 8) return new Color(255, 140, 0);
+        if (v == 9) return new Color(255, 120, 180);
+        if (v == 10) return new Color(120, 210, 255);
+        if (v == 11) return new Color(190, 160, 255);
+        if (v == 12) return new Color(150, 100, 60);
+        if (v == 13) return new Color(255, 210, 170);
 
 
         return Color.DARK_GRAY;
     }
+
+    /**
+     * fill example:
+     * Builds an inner box of obstacles and fills from a point outside the box.
+     */
+    private static void fillExample() {
+        int size = 30;
+        Map2D map = new Map(size, size, 0);
+        // inner box obstacle
+        for (int x = 8; x <= 20; x++) {
+            map.setPixel(x, 8, -1);
+            map.setPixel(x, 20, -1);
+        }
+        for (int y = 8; y <= 20; y++) {
+            map.setPixel(8, y, -1);
+            map.setPixel(20, y, -1);
+        }
+        Pixel2D p = new Index2D(2, 2);
+        drawMap(map);//before
+        StdDraw.pause(1000);
+        map.fill(p, 7, false);   // fill
+        drawMap(map);
+        StdDraw.pause(1000);
+    }
+
 }
-
-
-
-
-
-
