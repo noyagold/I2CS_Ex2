@@ -97,6 +97,28 @@ Below are examples of outputs generated using the Ex2_GUI.
 
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 56" src="https://github.com/user-attachments/assets/e01ad1d8-fbd7-4d04-adf5-95af9f22c3ac" />
 
+⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 20 27" src="https://github.com/user-attachments/assets/348cf1d5-c730-4e9e-b63d-299f948cc2dd" />
+
+
+⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 20 31" src="https://github.com/user-attachments/assets/4bb4987c-443a-4585-ad80-edfa16d9dec2" />
+   
+
+⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 30" src="https://github.com/user-attachments/assets/24d562a0-2047-4234-8e63-413c12df409f" />
+
+
+⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 31" src="https://github.com/user-attachments/assets/afb7c24b-b12d-4d52-8314-631d3feba2bb" />
+                                   
+
+⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 34" src="https://github.com/user-attachments/assets/1e63c5b9-839c-43ae-b71b-2c051abfb8ec" />
+
+
+⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 36" src="https://github.com/user-attachments/assets/57a15f1a-d742-4b23-bab1-2ae8c03b64eb" />
+
+
+⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 37" src="https://github.com/user-attachments/assets/d4fc4846-8c9b-4f76-afaa-ec62928d7b6a" />
+   
+
+
 Notes 💡
 
 • The project follows the assignment specification and interfaces strictly.
