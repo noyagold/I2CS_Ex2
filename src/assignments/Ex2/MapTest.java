@@ -225,6 +225,11 @@ class MapTest {
         assertEquals(1, _m3_3.getHeight());
     }
 
+    @Test
+    void testDrawCircle() {
+        _m0.init(3,3,0);
+        _m0.drawCircle(new Index2D(1,1), 1.1, 5);
+        assertEquals(5, _m0.getPixel(1,1));}
 
 
 
