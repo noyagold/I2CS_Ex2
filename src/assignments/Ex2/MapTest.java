@@ -55,4 +55,22 @@ class MapTest {
         assertEquals(3, a.length);
         assertEquals(3, a[0].length);
     }
+
+    @Test
+    void testGetWidth() {
+        assertEquals(3, _m3_3.getWidth());
+    }
+
+    @Test
+    void testGetHeight() {
+        assertEquals(3, _m3_3.getHeight());
+    }
+
+    @Test
+    void testGetPixelXY() {
+        assertEquals(1, _m3_3.getPixel(1,0));
+    }
+
+
+
 }
