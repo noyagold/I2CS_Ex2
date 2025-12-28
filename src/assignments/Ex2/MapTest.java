@@ -55,6 +55,24 @@ class MapTest {
         assertEquals(_m0,_m1);
     }
 
+    //should throw RuntimeException on null input.
+    @Test
+    void testInit_NullArray() {
+        assertThrows(RuntimeException.class, () -> {
+            _m0.init(map_null);
+        });
+    }
+
+    //should throw RuntimeException on empty row.
+    @Test
+    void testInit_EmptyRow() {
+        assertThrows(RuntimeException.class, () -> {
+            _m0.init(map_empty_row);
+        });
+    }
+
+
+
     //same Diminutions
     @Test
     void testGetMap() {
