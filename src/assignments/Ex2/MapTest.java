@@ -232,6 +232,15 @@ class MapTest {
         assertEquals(5, _m0.getPixel(1,1));}
 
 
+    @Test
+    void testDrawLine() {
+        _m0.init(3,3,0);
+        _m0.drawLine(new Index2D(0,1), new Index2D(2,1), 9);
+        assertEquals(9, _m0.getPixel(0,1));
+        assertEquals(9, _m0.getPixel(2,1));
+    }
+
+
 
 
 
