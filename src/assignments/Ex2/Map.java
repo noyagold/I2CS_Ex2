@@ -449,6 +449,14 @@ public class Map implements Map2D, Serializable{
     return new Index2D(nx, ny);//returns the neib
     }
 
+
+    /**
+     * Builds the path from the start pixel to the end pixel using backtracking.
+     * @param start a matrix that stores the previous pixel for each position.
+     * @param end the destination pixel.
+     * @return an array of pixels representing the path from start to end.
+     */
+
    private Pixel2D[] buildPath(Pixel2D[][] start, Pixel2D end) {
        java.util.ArrayList<Pixel2D> rev = new java.util.ArrayList<Pixel2D>();
        Pixel2D cur = new Index2D(end.getX(), end.getY()); //starting from end
