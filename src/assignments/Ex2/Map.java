@@ -343,6 +343,11 @@ public class Map implements Map2D, Serializable{
         }
 
     }
+    /**
+     * I cast the object to Map2D after checking its type.
+     * I check dimensions first, and then use nested loops
+     * to compare every cell in the two maps.
+     */
 
     @Override
     public boolean equals(Object ob) {
@@ -355,7 +360,7 @@ public class Map implements Map2D, Serializable{
             if (!this.sameDimensions(other)){ //check if ob(other) and map have same dimensions
                 return false;
         }
-            for (int y= 0; y<this.getHeight(); y++) {//every index's value checked if equal
+            for (int y= 0; y<this.getHeight(); y++) {//every cell checked if equal
                 for (int x= 0; x<this.getWidth(); x++) {
                     if (this.getPixel(x, y) != other.getPixel(x, y)) {
                         return false;
