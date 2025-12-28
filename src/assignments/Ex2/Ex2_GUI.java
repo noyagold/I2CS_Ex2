@@ -102,6 +102,7 @@ import java.io.*;
         fillExample();
         shortestPathExample();
         rescaleExample();
+        allDistanceExample();
     }
 
 
@@ -208,5 +209,20 @@ import java.io.*;
         drawMap(map);
     }
 
+    /**
+     * allDistance example:
+     * Computes distance from the center point. colors are translated from distance.
+     */
+    private static void allDistanceExample() {
+        int size = 10;
+        Map2D map1 = new Map(size);
+        Pixel2D start = new Index2D(size/2, size/2);
+        map1.setPixel(start, 2);
+        drawMap(map1);
+        StdDraw.pause(1500);
+        map1 = map1.allDistance(start, -1, true);
+        drawMap(map1);
+        StdDraw.pause(1500);
+    }
 
 }
