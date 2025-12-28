@@ -374,6 +374,24 @@ public class Map implements Map2D, Serializable{
 	 * Fills this map with the new color (new_v) starting from p.
 	 * https://en.wikipedia.org/wiki/Flood_fill
 	 */
+
+/**
+ * I implemented fill using a BFS queue.
+ * First I validate the start pixel if it is outside the map I return 0,
+ * and if the old value is already equal to the new value I also return 0.
+ *
+ * I save the original value (old_v) and then I start BFS from the start pixel.
+ * I immediately recolor the start pixel to new_v and push it into the queue,
+ * so it will be treated as visited and won’t be added again later.
+ *
+ * While the queue is not empty I pop a pixel and check its 4 neighbors.
+ * For each neighbor, if it exists and its value is still old_v,
+ * I recolor it to new_v, add it to the queue, and increase the counter.
+
+ * Because I recolor pixels when I add them to the queue (not when removing),
+ * each pixel is processed once and I avoid infinite loops.
+ */
+
 	public int fill(Pixel2D xy, int new_v,  boolean cyclic) {
 		int ans = -1;
         if(!isInside(xy)){ //is point inside map
@@ -409,6 +427,24 @@ public class Map implements Map2D, Serializable{
 	}
 
 
+    /**
+     * I implemented shortestPath using BFS with an ArrayDeque queue.
+     * First I validate that both p1 and p2 are inside the map and not obstacles.
+     * If p1 equals p2 I return an array with only that pixel.
+     *
+     * I use a boolean visited[h][w] matrix to avoid revisiting pixels,
+     * and a Pixel2D start[h][w] matrix to store the previous pixel (from where I came)
+     * so I can rebuild the path later.
+     *
+     * I add p1 to the queue, mark it visited, and set its previous value to null.
+     * Then I run BFS while the queue is not empty and the target was not found yet.
+     * For each popped pixel I check its 4 neighbors.
+     * skip null neighbors, already visited pixels, and obstacle pixels.
+     *
+     * When I visit a valid neighbor I mark it visited, store its previous pixel in start[][],
+     * and add it to the queue. If the neighbor equals p2 I set found=true and stop the search.
+     * At the end, if p2 was never visited I return null; otherwise I rebuild the path using buildPath.
+     */
 
 	@Override
 	/**
