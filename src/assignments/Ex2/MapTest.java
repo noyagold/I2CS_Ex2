@@ -22,11 +22,15 @@ class MapTest {
     private int[][] map_empty_row = {{}};
 
     private Map2D _m0, _m1, _m3_3;
+    private Map2D _one, _vals, _obs;
     @BeforeEach
     public void setup() {
         _m0 = new Map(map_m0);
         _m1 = new Map(map_m1);
         _m3_3 = new Map(_map_3_3);
+        _one = new Map(map_0);
+        _vals = new Map(map_vals);
+        _obs = new Map(map_obs);
 
 
     }
@@ -81,7 +85,17 @@ class MapTest {
         assertEquals(3, a[0].length);
     }
 
+
     @Test
+    void testGetMap_DeepCopy() {
+        int[][] copy = _m0.getMap();
+        _m0.setPixel(0, 0, 999);// change the original map
+        assertEquals(0, copy[0][0]); // copy must stay with the old value
+        assertEquals(999, _m0.getPixel(0, 0)); // and original changed
+    }
+
+
+        @Test
     void testGetWidth() {
         assertEquals(3, _m3_3.getWidth());
     }
