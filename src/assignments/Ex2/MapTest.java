@@ -248,14 +248,46 @@ class MapTest {
     }
 
 
+        @Test
+        void testFill() {
+            _m3_3.init(_map_3_3);
+            int filled1 = _m3_3.fill(new Index2D(0,0), 5, false);
+            assertEquals(1, filled1);
+            assertEquals(5, _m3_3.getPixel(0,0));
+            int filled2 = _m3_3.fill(new Index2D(1,0), 7, false);
+            assertEquals(1, filled2);
+            assertEquals(7, _m3_3.getPixel(1,0));
+            int filled3 = _m3_3.fill(new Index2D(1,1), 9, false);
+            assertEquals(1, filled3);
+            assertEquals(9, _m3_3.getPixel(1,1));
+        }
 
-
-
-
-
+    @Test
+    void testShortestPath_Wow() {
+        Pixel2D start = new Index2D(0, 0);
+        Pixel2D end   = new Index2D(2, 0);
+        Pixel2D[] path = _obs.shortestPath(start, end, -1, false);
+        assertNotNull(path);
+        assertEquals(start, path[0]);
+        assertEquals(end, path[path.length - 1]);
+        assertEquals(7, path.length);
+        for (Pixel2D p : path) { //for each p in path
+            assertEquals(0, _obs.getPixel(p)); //havent been through obs
+        }
+    }
 
 
     }
+
+
+
+
+
+
+
+
+
+
 
 
 
