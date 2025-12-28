@@ -101,6 +101,7 @@ import java.io.*;
     public static void main(String[] a) {
         fillExample();
         shortestPathExample();
+        rescaleExample();
     }
 
 
@@ -183,6 +184,28 @@ import java.io.*;
         }
         drawMap(map);
         StdDraw.pause(1200);
+    }
+
+    /**
+     * rescale example:
+     * Draws several circles (grapes) and rescales the map.
+     */
+    private static void rescaleExample() {
+        Map2D map = new Map(80);
+        Pixel2D c = new Index2D(40, 30);
+        map.drawCircle(c, 6, 4);
+        map.drawCircle(new Index2D(34, 36), 6, 6);
+        map.drawCircle(new Index2D(46, 36), 6, 6);
+        map.drawCircle(new Index2D(28, 42), 6, 6);
+        map.drawCircle(new Index2D(40, 42), 6, 6);
+        map.drawCircle(new Index2D(52, 42), 6, 6);
+        map.drawCircle(new Index2D(34, 48), 6, 6);
+        map.drawCircle(new Index2D(46, 48), 6, 6);
+        map.drawCircle(new Index2D(40, 54), 6, 6);
+        drawMap(map);
+
+        map.rescale(1.5, 0.7);
+        drawMap(map);
     }
 
 
