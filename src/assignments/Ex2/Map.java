@@ -209,6 +209,11 @@ public class Map implements Map2D, Serializable{
         }
     }
 
+    /**
+     * I multiply each cell value by the scalar
+     * and cast the result back to int.
+     */
+
     @Override
     public void mul(double scalar) {
         for (int i = 0; i < this.map.length; i++) {
@@ -217,9 +222,12 @@ public class Map implements Map2D, Serializable{
             }
 
         }
-
     }
 
+    /**
+     * I create a new resized matrix and copy values
+     * using nearest neighbor logic based on the scale factors.
+     */
     @Override
     public void rescale(double sx, double sy) {
         int newHeight =(int)(this.getHeight()*sy);
@@ -238,6 +246,11 @@ public class Map implements Map2D, Serializable{
         }
         this.map = newMap;
     }
+
+    /**
+     * I scan the entire map and color every pixel
+     * whose distance from the center is smaller than the radius.
+     */
 
     @Override
     public void drawCircle(Pixel2D center, double rad, int color) {
