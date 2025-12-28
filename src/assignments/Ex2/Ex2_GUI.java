@@ -103,6 +103,7 @@ import java.io.*;
         shortestPathExample();
         rescaleExample();
         allDistanceExample();
+        drawRectAndLine();
     }
 
 
@@ -223,6 +224,26 @@ import java.io.*;
         map1 = map1.allDistance(start, -1, true);
         drawMap(map1);
         StdDraw.pause(1500);
+    }
+
+    /**
+     * Draws rectangles and diagonal lines.
+     */
+    public static void drawRectAndLine() {
+        int size = 60;
+        Map2D map = new Map(size, size, 9);
+        map.drawRect(new Index2D(4, 8), new Index2D(16, 28), 11);
+        map.drawRect(new Index2D(34, 14), new Index2D(52, 36), 3);
+        Pixel2D top    = new Index2D(size/2, 6);
+        Pixel2D right  = new Index2D(size-6, size/2);
+        Pixel2D bottom = new Index2D(size/2, size-6);
+        Pixel2D left   = new Index2D(6, size/2);
+        map.drawLine(top, right, 10);
+        map.drawLine(right, bottom, 10);
+        map.drawLine(bottom, left, 10);
+        map.drawLine(left, top, 10);
+        drawMap(map);
+        StdDraw.pause(1000);
     }
 
 }
