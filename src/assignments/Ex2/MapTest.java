@@ -208,6 +208,12 @@ class MapTest {
         assertEquals(before, _m0);
     }
 
+    @Test
+    void testMul() {
+        _m0.mul(2);
+        assertEquals(2, _m0.getPixel(1,0));
+    }
+
 
 
 
