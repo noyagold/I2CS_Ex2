@@ -58,50 +58,68 @@ A utility class used for graphical drawing and visualization.
 
 Implemented Algorithms 🧠
 
-Shortest Path Distance (allDistance)
-Computes the shortest distance from a given starting pixel to all reachable pixels
-in the map while avoiding obstacles.
-The algorithm is based on Breadth-First Search (BFS).
-Unreachable cells are marked with the value -1.
-Supports both cyclic and non-cyclic maps.
+Fill
+Implements a flood fill algorithm using Breadth-First Search (BFS).
+Starting from a given pixel, all connected pixels with the same original value are filled with a new value using four-directional adjacency.
+The algorithm supports both cyclic and non-cyclic maps and returns the number of filled pixels.
 
-Flood Fill (fill)
-Fills the connected component of a given pixel with a new value.
-Connectivity is defined using four-directional adjacency.
-Returns the number of filled pixels.
+Shortest Path
+Computes the shortest path between two pixels using Breadth-First Search (BFS).
+The algorithm avoids obstacle pixels, tracks visited pixels, and stores previous positions in order to reconstruct the path.
+If no path exists, the function returns null; otherwise, it returns the shortest path as an array of pixels.
+
+All Distances 
+Computes the shortest distance from a starting pixel to all reachable pixels in the map using BFS.
+A new map is created where each cell stores its minimum distance from the start, while obstacles are skipped and unreachable cells are marked with -1.
+Supports both cyclic and non-cyclic maps.
 
 ⸻
 
 Graphical Visualization 🎯
-
-The GUI allows:
-• displaying original maps
-• visualizing distance maps
-• showing flood fill results
-
-This makes it easier to understand and debug the algorithms visually.
+The GUI:
+displays predefined 2D maps created in code
+visualizes flood fill, shortest path, and distance map results
+provides a clear visual representation of algorithm behavior
+helps with testing, debugging, and understanding the algorithms
+is designed in a way that allows easy future extensions
 
 ⸻
 
 Screenshots and Results 📸
 
 Below are examples of outputs generated using the Ex2_GUI.
-                            
+
+Flood Fill – Connected Area Filling
+Before: Initial map with obstacles and an open area
+After: Flood fill applied from a starting point, filling the connected region
 
  ⸻                        <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 16 57" src="https://github.com/user-attachments/assets/663cf578-66ee-458c-9fd1-a79b7389497c" />
 
 
 ⸻                        <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 53" src="https://github.com/user-attachments/assets/983d2177-128b-4dce-a582-c54595396b7f" />
+
+Shortest Path – Simple Maze
+Before: Maze with start and target points
+After: The shortest path highlighted between the two points
+
   
 ⸻                        <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 55" src="https://github.com/user-attachments/assets/9c80277e-1583-4634-8333-d9b234e05c44" />
 
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 56" src="https://github.com/user-attachments/assets/e01ad1d8-fbd7-4d04-adf5-95af9f22c3ac" />
+
+Rescale – Shape Transformation
+Before: Original shapes drawn on the map
+After: The same map after applying rescaling
 
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 20 27" src="https://github.com/user-attachments/assets/348cf1d5-c730-4e9e-b63d-299f948cc2dd" />
 
 
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 20 31" src="https://github.com/user-attachments/assets/4bb4987c-443a-4585-ad80-edfa16d9dec2" />
    
+All Distance – Distance Map
+Before: Starting point marked on the map
+After: Distance map showing the shortest distance from the start to each reachable cell
+
 
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 30" src="https://github.com/user-attachments/assets/24d562a0-2047-4234-8e63-413c12df409f" />
 
@@ -109,7 +127,14 @@ Below are examples of outputs generated using the Ex2_GUI.
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 31" src="https://github.com/user-attachments/assets/afb7c24b-b12d-4d52-8314-631d3feba2bb" />
                                    
 
+Drawing Rectangles and Lines
+Rectangles and diagonal lines drawn directly on the map
+
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 34" src="https://github.com/user-attachments/assets/1e63c5b9-839c-43ae-b71b-2c051abfb8ec" />
+
+Shortest Path – Complex Maze
+Before: Maze layout with start and target
+After: Computed shortest path visualized through the maze
 
 
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 36" src="https://github.com/user-attachments/assets/57a15f1a-d742-4b23-bab1-2ae8c03b64eb" />
