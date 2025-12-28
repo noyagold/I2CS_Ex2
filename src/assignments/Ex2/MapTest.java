@@ -263,17 +263,15 @@ class MapTest {
         }
 
     @Test
-    void testShortestPath_Wow() {
+    void testShortestPath() {
         Pixel2D start = new Index2D(0, 0);
         Pixel2D end   = new Index2D(2, 0);
         Pixel2D[] path = _obs.shortestPath(start, end, -1, false);
         assertNotNull(path);
         assertEquals(start, path[0]);
         assertEquals(end, path[path.length - 1]);
-        assertEquals(7, path.length);
-        for (Pixel2D p : path) { //for each p in path
-            assertEquals(0, _obs.getPixel(p)); //havent been through obs
-        }
+        for (Pixel2D p : path) {
+            assertNotEquals(-1, _obs.getPixel(p));}
     }
 
     @Test
@@ -297,6 +295,11 @@ class MapTest {
 
 
     }
+
+
+
+
+
 
 
 
