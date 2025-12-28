@@ -87,20 +87,12 @@ Screenshots and Results 📸
 
 Below are examples of outputs generated using the Ex2_GUI.
 
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 52" src="https://github.com/user-attachments/assets/45444400-6fe6-4b36-b764-0a8c0add5e37" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 23" src="https://github.com/user-attachments/assets/d86443d0-e675-4460-bf53-11ee06c6b70a" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 28" src="https://github.com/user-attachments/assets/a299dce0-7284-4b96-8b2f-6672d0f2d494" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 31" src="https://github.com/user-attachments/assets/062f139e-7515-4c87-92c0-86d46d3c513a" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 34" src="https://github.com/user-attachments/assets/8245975f-2098-484a-8af7-286392287ed7" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 37" src="https://github.com/user-attachments/assets/06d792a8-bc72-49f9-807e-0407b4a434a8" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 36" src="https://github.com/user-attachments/assets/a8e36255-8e20-42ef-beaf-8f62614b14be" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 53" src="https://github.com/user-attachments/assets/f9197b8f-ebd5-447c-859a-ee7daa022d93" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 55" src="https://github.com/user-attachments/assets/5c042b76-fac9-4e30-95b8-be537db4dc28" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 56" src="https://github.com/user-attachments/assets/58039030-4732-4f08-9308-835c7c6a92ea" />
-<img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 20 07" src="https://github.com/user-attachments/assets/0a6f093b-5da8-409c-93ff-88557c1c68db" />
+
+                    <img width="1073" height="1067" alt="צילום מסך 2025-12-28 ב-21 16 57" src="https://github.com/user-attachments/assets/1990f47d-6d01-4891-8f5e-f76b8d83527f" />
 
 
-⸻
+⸻                <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 53" src="https://github.com/user-attachments/assets/983d2177-128b-4dce-a582-c54595396b7f" />
+
 
 Notes 💡
 
