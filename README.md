@@ -118,8 +118,7 @@ After: The same map after applying rescaling
    
 All Distance – Distance Map
 Before: Starting point marked on the map
-After: Distance map showing the shortest distance from the start to each reachable cell
-
+After: Distance map where each color represents a different distance from the start.
 
 ⸻                         <img width="513" height="511" alt="צילום מסך 2025-12-28 ב-21 19 30" src="https://github.com/user-attachments/assets/24d562a0-2047-4234-8e63-413c12df409f" />
 
