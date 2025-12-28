@@ -162,7 +162,28 @@ class MapTest {
         Pixel2D p4 = new Index2D(1, 1);
         _obs.setPixel(p4, 6);
         assertEquals(6, _obs.getPixel(p4));}
+
+    @Test
+    void testIsInsideTrue() {
+        assertTrue(_m3_3.isInside(new Index2D(0, 0)));
+        assertTrue(_m0.isInside(new Index2D(1, 1)));
+        assertTrue(_one.isInside(new Index2D(0, 0)));
+        assertTrue(_obs.isInside(new Index2D(2, 2)));
     }
+
+    @Test
+    void testIsInsideFalse() {
+        assertFalse(_m3_3.isInside(new Index2D(-1, 0)));
+        assertFalse(_m3_3.isInside(new Index2D(0, -1)));
+        assertFalse(_m0.isInside(new Index2D(5, 5)));
+        assertFalse(_one.isInside(new Index2D(1, 0)));
+        assertFalse(_one.isInside(new Index2D(0, 1)));
+    }
+
+
+    }
+
+
 
 
 
