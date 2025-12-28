@@ -15,21 +15,19 @@ public class Index2DTest {
     @Test
     //x negative
     public void testGetX() {
-        Index2D p = new Index2D(-1, 4);
-        assertEquals(-1, p.getX());
+        Index2D z = new Index2D(-1, 4);
+        assertEquals(-1, z.getX());
     }
 
     @Test
 // getX = 0
     public void testGetX_Zero() {
-        Index2D p = new Index2D(0, 5);
         assertEquals(0, p.getX());
     }
 
     @Test
 // getY = 0
     public void testGetY_Zero() {
-        Index2D p = new Index2D(7, 0);
         assertEquals(0, p.getY());
     }
 
@@ -48,6 +46,7 @@ public class Index2DTest {
             p.distance2D(null);
             fail(); // must throw exception
         } catch (RuntimeException e) {
+            assertTrue(true);
         }
     }
 
