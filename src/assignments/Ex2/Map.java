@@ -32,6 +32,10 @@ public class Map implements Map2D, Serializable{
 		init(data);
 	}
 
+    /**
+     * Initializes the map with the given width and height,
+     * and fills all cells with the same initial value.
+     */
 
 	@Override
 	public void init(int w, int h, int v) {
@@ -43,7 +47,13 @@ public class Map implements Map2D, Serializable{
             }
         }
 	}
-	@Override
+    /**
+     * Initializes the map from a given 2D array.
+     * Checks that the array is valid and not ragged,
+     * and copies its values into the map.
+     */
+
+    @Override
 	public void init(int[][] arr) {
         if (arr == null || arr.length == 0 || arr[0].length == 0) {              //null and empty columns exceptions
             throw new RuntimeException();
@@ -65,6 +75,11 @@ public class Map implements Map2D, Serializable{
 
 
 	}
+
+    /**
+     * I return a deep copy of the map so external code
+     * cannot change my internal matrix directly.
+     */
 	@Override
 	public int[][] getMap() {
 		int[][] ans = new int [this.map.length][this.map[0].length];   //creating a new copy matrix of map with same size
@@ -77,25 +92,47 @@ public class Map implements Map2D, Serializable{
 
 		return ans;
 	}
+
+
+    /**
+     * I return the number of columns by using the first row length,
+     */
 	@Override
 	public int getWidth() {
         int ans = this.map [0].length;   // map's rows are identical --> the same width for all
 
         return ans;
     }
-	@Override
+
+    /**
+     * I return the number of rows in the map.
+     */
+
+    @Override
 	public int getHeight() {
         int ans = this.map.length;
 
         return ans;
     }
-	@Override
+
+    /**
+     * I access the value directly from the internal array
+     * using map[y][x].
+     */
+
+    @Override
 	public int getPixel(int x, int y) {
         int ans = this.map[y][x];
 
         return ans;
     }
-	@Override
+
+    /**
+     * I extract the x and y values from the Pixel2D
+     * and then read the value from the map.
+     */
+
+    @Override
 	public int getPixel(Pixel2D p) {
        int x =  p.getX();      //getting x
        int y =  p.getY();      //getting y
@@ -103,12 +140,22 @@ public class Map implements Map2D, Serializable{
 
         return ans;
 	}
-	@Override
+
+    /**
+     * I update the value of the given cell directly in the matrix.
+     */
+
+    @Override
 	public void setPixel(int x, int y, int v) {
         this.map[y][x] = v;
     }
 
-	@Override
+    /**
+     * I use the coordinates from the Pixel2D object
+     * to update the value in the map.
+     */
+
+    @Override
 	public void setPixel(Pixel2D p, int v) {
       this.map[p.getY()][p.getX()] = v;
 	}
