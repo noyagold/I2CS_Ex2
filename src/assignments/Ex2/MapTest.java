@@ -214,6 +214,19 @@ class MapTest {
         assertEquals(2, _m0.getPixel(1,0));
     }
 
+    @Test
+    void testRescale() {
+        _m3_3.rescale(2, 1);
+        assertEquals(6, _m3_3.getWidth());
+        assertEquals(3, _m3_3.getHeight());
+        _m3_3 = new Map(_map_3_3); // reset to 3x3
+        _m3_3.rescale(0.5, 0.5);//smaller
+        assertEquals(1, _m3_3.getWidth());
+        assertEquals(1, _m3_3.getHeight());
+    }
+
+
+
 
 
 
