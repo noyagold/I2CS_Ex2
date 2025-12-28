@@ -104,6 +104,7 @@ import java.io.*;
         rescaleExample();
         allDistanceExample();
         drawRectAndLine();
+        simpleMazeExample();
     }
 
 
@@ -246,4 +247,35 @@ import java.io.*;
         StdDraw.pause(1000);
     }
 
+    /**
+     * A maze with shortest path.
+     */
+    private static void simpleMazeExample() {
+        int size = 15;
+        Map2D map = new Map(size, size, 0);
+        for (int i = 0; i < size; i++) {//borders
+            map.setPixel(i, 0, -1);
+            map.setPixel(i, size - 1, -1);
+            map.setPixel(0, i, -1);
+            map.setPixel(size - 1, i, -1);
+        }
+        for (int x = 2; x < size - 2; x++) map.setPixel(x, 3, -1);//maze
+        for (int y = 3; y < size - 2; y++) map.setPixel(4, y, -1);
+        for (int x = 4; x < size - 3; x++) map.setPixel(x, 7, -1);
+        for (int y = 7; y < size - 2; y++) map.setPixel(9, y, -1);
+        Pixel2D start  = new Index2D(1, 1);
+        Pixel2D target = new Index2D(size - 2, size - 2);
+        map.setPixel(start, 2);
+        map.setPixel(target, 3);
+        drawMap(map);
+        StdDraw.pause(1500);
+        Pixel2D[] path = map.shortestPath(start, target, -1, false);
+        for (Pixel2D p : path) { //for each p from path
+            if (!p.equals(start) && !p.equals(target)) { //color path
+                map.setPixel(p, 4);
+            }
+        }
+        drawMap(map);
+        StdDraw.pause(1500);
+    }
 }
